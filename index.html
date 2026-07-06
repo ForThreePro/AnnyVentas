@@ -13,10 +13,8 @@
     background-attachment: fixed;
   }
   canvas { position: fixed; top:0; left:0; z-index: 0; pointer-events: none; }
-
  .container {
-    position: relative; z-index: 2;
-    max-width: 900px; margin: 0 auto;
+    position: relative; z-index: 2; max-width: 900px; margin: 0 auto;
     background: linear-gradient(180deg, #ffe6f2 0%, #ffd6eb 100%);
     border-radius: 30px; padding: 30px;
     box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
@@ -27,7 +25,6 @@
     font-family: 'Dancing Script', cursive; text-shadow: 0 3px 10px rgba(214,51,132,0.3);
   }
  .sub { text-align: center; color: #a63a6a; margin-bottom: 20px; font-weight: 600; }
-
  .monedas {
     display: flex; justify-content: center; gap: 8px; margin: 20px 0; flex-wrap: wrap;
   }
@@ -37,13 +34,11 @@
     box-shadow: 0 4px 10px rgba(255,94,148,0.3);
   }
  .monedas button.activo { background: #ff5e94; color: white; transform: scale(1.1); }
-
  .categoria { margin: 30px 0; }
  .categoria h2 {
     color: #d63384; border-bottom: 3px solid #ff85c1; padding-bottom: 8px; margin-bottom: 15px;
     font-family: 'Dancing Script', cursive; font-size: 2em;
   }
-
  .item {
     display: flex; justify-content: space-between; align-items: center;
     background: linear-gradient(90deg, #ffc1e3, #ffb3d9); padding: 14px 18px; margin: 10px 0;
@@ -58,7 +53,6 @@
     box-shadow: 0 5px 15px rgba(255,94,148,0.4);
   }
  .precio-btn:hover { transform: scale(1.1) rotate(-2deg); }
-
  .aclaraciones {
     background: linear-gradient(135deg, #ffc1e3, #ffb3d9); border-left: 6px solid #ff5e94;
     padding: 25px; border-radius: 20px; margin-top: 30px; color: #4a0033;
@@ -69,7 +63,6 @@
 </style>
 </head>
 <body>
-
 <canvas id="hearts"></canvas>
 
 <div class="container">
@@ -85,8 +78,78 @@
     <button onclick="cambiarMoneda('DIAM')">💎 Diam</button>
   </div>
 
-  <!-- AQUÍ VAN TODAS TUS CATEGORÍAS: Calis, Ilus, Variantes, Plantillas, etc -->
-  <!-- Ya las tienes en el código anterior. Si quieres te lo paso completo otra vez -->
+  <div class="categoria">
+    <h2>Caligráficos</h2>
+    <div class="item"><span class="item-nombre">Inicial</span><a class="precio-btn" data-precios='{"MXN":15,"PEN":3,"CLP":850,"BOB":8,"ARS":1000,"DIAM":100}' onclick="pedir(this)">$15 MXN</a></div>
+    <div class="item"><span class="item-nombre">Simple</span><a class="precio-btn" data-precios='{"MXN":25,"PEN":5,"CLP":1200,"BOB":10,"ARS":1200,"DIAM":100}' onclick="pedir(this)">$25 MXN</a></div>
+    <div class="item"><span class="item-nombre">Objeto</span><a class="precio-btn" data-precios='{"MXN":35,"PEN":8,"CLP":1600,"BOB":15,"ARS":1600,"DIAM":200}' onclick="pedir(this)">$35 MXN</a></div>
+    <div class="item"><span class="item-nombre">Temático</span><a class="precio-btn" data-precios='{"MXN":55,"PEN":12,"CLP":2300,"BOB":20,"ARS":4000,"DIAM":300}' onclick="pedir(this)">$55 MXN</a></div>
+    <div class="item"><span class="item-nombre">Curvo</span><a class="precio-btn" data-precios='{"MXN":55,"PEN":12,"CLP":2300,"BOB":20,"ARS":4000,"DIAM":300}' onclick="pedir(this)">$55 MXN</a></div>
+    <div class="item"><span class="item-nombre">Pixelado</span><a class="precio-btn" data-precios='{"MXN":55,"PEN":12,"CLP":2300,"BOB":20,"ARS":4000,"DIAM":300}' onclick="pedir(this)">$55 MXN</a></div>
+    <div class="item"><span class="item-nombre">Periocali</span><a class="precio-btn" data-precios='{"MXN":45,"PEN":10,"CLP":2000,"BOB":18,"ARS":3000,"DIAM":200}' onclick="pedir(this)">$45 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Ilustraciones con o sin objeto 💕</h2>
+    <div class="item"><span class="item-nombre">Ilustración pechos</span><a class="precio-btn" data-precios='{"MXN":70,"PEN":15,"CLP":3500,"BOB":30,"ARS":5000,"DIAM":400}' onclick="pedir(this)">$70 MXN</a></div>
+    <div class="item"><span class="item-nombre">Ilustración muslo</span><a class="precio-btn" data-precios='{"MXN":120,"PEN":20,"CLP":4500,"BOB":35,"ARS":9000,"DIAM":600}' onclick="pedir(this)">$120 MXN</a></div>
+    <div class="item"><span class="item-nombre">Cuerpo completo</span><a class="precio-btn" data-precios='{"MXN":160,"PEN":30,"CLP":7000,"BOB":60,"ARS":13500,"DIAM":800}' onclick="pedir(this)">$160 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Variantes ✨</h2>
+    <p style="text-align:center; margin-bottom:10px; color:#a63a6a;">Bratz, Chibis, Elfo, Funkos, Icons, Kittys, Winx, Hada, Labubus, Stickers, Banner ojos</p>
+    <div class="item"><span class="item-nombre">Cualquiera de estos</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":12,"CLP":2500,"BOB":30,"ARS":5000,"DIAM":400}' onclick="pedir(this)">$60 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Plantillas</h2>
+    <div class="item"><span class="item-nombre">Banner / Mosaico</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":12,"CLP":2500,"BOB":30,"ARS":5000,"DIAM":300}' onclick="pedir(this)">$60 MXN</a></div>
+    <div class="item"><span class="item-nombre">Carrusel</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":12,"CLP":2500,"BOB":30,"ARS":5000,"DIAM":300}' onclick="pedir(this)">$60 MXN</a></div>
+    <div class="item"><span class="item-nombre">Destacadas x2</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":4,"CLP":900,"BOB":10,"ARS":1200,"DIAM":100}' onclick="pedir(this)">$60 MXN</a></div>
+    <div class="item"><span class="item-nombre">Reglas</span><a class="precio-btn" data-precios='{"MXN":65,"PEN":14,"CLP":2800,"BOB":35,"ARS":5000,"DIAM":400}' onclick="pedir(this)">$65 MXN</a></div>
+    <div class="item"><span class="item-nombre">Logos</span><a class="precio-btn" data-precios='{"MXN":30,"PEN":6,"CLP":2000,"BOB":20,"ARS":2500,"DIAM":200}' onclick="pedir(this)">$30 MXN</a></div>
+    <div class="item"><span class="item-nombre">Historias</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":12,"CLP":2500,"BOB":30,"ARS":5000,"DIAM":300}' onclick="pedir(this)">$60 MXN</a></div>
+    <div class="item"><span class="item-nombre">P. Versus</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":12,"CLP":2500,"BOB":30,"ARS":5000,"DIAM":300}' onclick="pedir(this)">$60 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Marcas de agua</h2>
+    <p style="text-align:center; margin-bottom:10px; color:#a63a6a;">Inicial / Nombre / Con ilustración</p>
+    <div class="item"><span class="item-nombre">Cualquiera</span><a class="precio-btn" data-precios='{"MXN":40,"PEN":6,"CLP":1600,"BOB":20,"ARS":2500,"DIAM":20}' onclick="pedir(this)">$40 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Fondos</h2>
+    <p style="text-align:center; margin-bottom:10px; color:#a63a6a;">Para calis o variantes - Historia o Post</p>
+    <div class="item"><span class="item-nombre">Cualquiera</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":12,"CLP":2000,"BOB":30,"ARS":4000,"DIAM":300}' onclick="pedir(this)">$60 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Ropas/Objeto editados</h2>
+    <p style="text-align:center; margin-bottom:10px; color:#a63a6a;">Jersey, Buso, Bikini, Gorra, Silla Gamer + Presentación</p>
+    <div class="item"><span class="item-nombre">Cualquiera</span><a class="precio-btn" data-precios='{"MXN":100,"PEN":12,"CLP":2500,"BOB":30,"ARS":5000,"DIAM":500}' onclick="pedir(this)">$100 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Renovaciones Equipos</h2>
+    <div class="item"><span class="item-nombre">Mini renovación</span><a class="precio-btn" data-precios='{"MXN":130,"PEN":20,"CLP":4500,"BOB":50,"ARS":9000,"DIAM":600}' onclick="pedir(this)">$130 MXN</a></div>
+    <div class="item"><span class="item-nombre">Renovación completa</span><a class="precio-btn" data-precios='{"MXN":200,"PEN":38,"CLP":7500,"BOB":100,"ARS":18000,"DIAM":1000}' onclick="pedir(this)">$200 MXN</a></div>
+    <div class="item"><span class="item-nombre">Renovación premium</span><a class="precio-btn" data-precios='{"MXN":280,"PEN":50,"CLP":10000,"BOB":150,"ARS":23000,"DIAM":1500}' onclick="pedir(this)">$280 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Renovación dzn/art</h2>
+    <div class="item"><span class="item-nombre">Mini renovación</span><a class="precio-btn" data-precios='{"MXN":130,"PEN":20,"CLP":4500,"BOB":50,"ARS":9000,"DIAM":600}' onclick="pedir(this)">$130 MXN</a></div>
+    <div class="item"><span class="item-nombre">Renovación completa</span><a class="precio-btn" data-precios='{"MXN":220,"PEN":40,"CLP":7800,"BOB":100,"ARS":18500,"DIAM":1200}' onclick="pedir(this)">$220 MXN</a></div>
+  </div>
+
+  <div class="categoria">
+    <h2>Drives</h2>
+    <div class="item"><span class="item-nombre">Drive 1 - Variantes variados</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":12,"CLP":2600,"BOB":30,"ARS":5000,"DIAM":400}' onclick="pedir(this)">$60 MXN</a></div>
+    <div class="item"><span class="item-nombre">Drive 2 - Chibis + Stickers PSD</span><a class="precio-btn" data-precios='{"MXN":60,"PEN":12,"CLP":2600,"BOB":30,"ARS":5000,"DIAM":400}' onclick="pedir(this)">$60 MXN</a></div>
+    <div class="item"><span class="item-nombre">Clases personalizadas</span><a class="precio-btn" data-precios='{"MXN":0,"PEN":0,"CLP":0,"BOB":0,"ARS":0,"DIAM":0}' onclick="pedir(this)">Consultar 💬</a></div>
+  </div>
 
   <div class="aclaraciones">
     <h3>Aclaraciones Importantes 💌</h3>
@@ -112,7 +175,6 @@
 </div>
 
 <script>
-// CORAZONES FLOTANDO
 const canvas = document.getElementById('hearts'); const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 let hearts = [];
@@ -128,7 +190,6 @@ function cambiarMoneda(moneda){
   monedaActual = moneda;
   document.querySelectorAll('.monedas button').forEach(b=>b.classList.remove('activo'));
   event.target.classList.add('activo');
-
   document.querySelectorAll('.precio-btn').forEach(btn=>{
     const precios = JSON.parse(btn.dataset.precios);
     if(precios[moneda] === 0){ btn.innerText = "Consultar 💬"; return; }
@@ -144,7 +205,6 @@ function pedir(btn){
   const numero = "59169707905";
   window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
-
 cambiarMoneda('BOB');
 </script>
 </body>
