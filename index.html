@@ -13,7 +13,7 @@
     background-attachment: fixed;
   }
   canvas { position: fixed; top:0; left:0; z-index: 0; pointer-events: none; }
- .container {
+.container {
     position: relative; z-index: 2; max-width: 900px; margin: 0 auto;
     background: linear-gradient(180deg, #ffe6f2 0%, #ffd6eb 100%);
     border-radius: 30px; padding: 30px;
@@ -24,42 +24,43 @@
     text-align: center; color: #d63384; font-size: 3em; margin-bottom: 5px;
     font-family: 'Dancing Script', cursive; text-shadow: 0 3px 10px rgba(214,51,132,0.3);
   }
- .sub { text-align: center; color: #a63a6a; margin-bottom: 20px; font-weight: 600; }
- .monedas {
+.sub { text-align: center; color: #a63a6a; margin-bottom: 20px; font-weight: 600; }
+.nota-pago { text-align:center; color:#d63384; background:#ffc1e3; padding:10px; border-radius:15px; margin-bottom:20px; font-weight:600; }
+.monedas {
     display: flex; justify-content: center; gap: 8px; margin: 20px 0; flex-wrap: wrap;
   }
- .monedas button {
+.monedas button {
     padding: 10px 18px; border: 2px solid #ff5e94; background: #ffc1e3; color: #d63384;
     border-radius: 50px; cursor: pointer; font-weight: 700; transition: 0.3s;
     box-shadow: 0 4px 10px rgba(255,94,148,0.3);
   }
- .monedas button.activo { background: #ff5e94; color: white; transform: scale(1.1); }
- .categoria { margin: 30px 0; }
- .categoria h2 {
+.monedas button.activo { background: #ff5e94; color: white; transform: scale(1.1); }
+.categoria { margin: 30px 0; }
+.categoria h2 {
     color: #d63384; border-bottom: 3px solid #ff85c1; padding-bottom: 8px; margin-bottom: 15px;
     font-family: 'Dancing Script', cursive; font-size: 2em;
   }
- .item {
+.item {
     display: flex; justify-content: space-between; align-items: center;
     background: linear-gradient(90deg, #ffc1e3, #ffb3d9); padding: 14px 18px; margin: 10px 0;
     border-radius: 18px; transition: 0.3s; border: 2px solid #ff85c1;
     box-shadow: 0 4px 15px rgba(255,105,180,0.2);
   }
- .item:hover { background: linear-gradient(90deg, #ffb3d9, #ff9ec9); transform: translateX(8px) scale(1.02); }
- .item-nombre { font-weight: 700; color: #4a0033; font-size: 1.05em; }
- .precio-btn {
+.item:hover { background: linear-gradient(90deg, #ffb3d9, #ff9ec9); transform: translateX(8px) scale(1.02); }
+.item-nombre { font-weight: 700; color: #4a0033; font-size: 1.05em; }
+.precio-btn {
     background: linear-gradient(45deg, #ff5e94, #ff85c1); color: white; padding: 10px 18px;
     border-radius: 25px; text-decoration: none; font-weight: bold; cursor: pointer; transition: 0.3s;
     box-shadow: 0 5px 15px rgba(255,94,148,0.4);
   }
- .precio-btn:hover { transform: scale(1.1) rotate(-2deg); }
- .aclaraciones {
+.precio-btn:hover { transform: scale(1.1) rotate(-2deg); }
+.aclaraciones {
     background: linear-gradient(135deg, #ffc1e3, #ffb3d9); border-left: 6px solid #ff5e94;
     padding: 25px; border-radius: 20px; margin-top: 30px; color: #4a0033;
   }
- .aclaraciones h3 { color: #d63384; margin-bottom: 15px; font-family: 'Dancing Script', cursive; font-size: 2em; text-align:center; }
- .aclaraciones li { margin: 10px 0; font-size: 0.95em; font-weight: 500; list-style: none; }
- .aclaraciones li:before { content: "💖 "; margin-right: 5px; }
+.aclaraciones h3 { color: #d63384; margin-bottom: 15px; font-family: 'Dancing Script', cursive; font-size: 2em; text-align:center; }
+.aclaraciones li { margin: 10px 0; font-size: 0.95em; font-weight: 500; list-style: none; }
+.aclaraciones li:before { content: "💖 "; margin-right: 5px; }
 </style>
 </head>
 <body>
@@ -68,14 +69,15 @@
 <div class="container">
   <h1>Anny dzn/art 💖</h1>
   <p class="sub">Te vengo a ofrecer mis trabajos ✨</p>
+  <p class="nota-pago">💌 Para pagar escríbeme al WhatsApp, te paso la cuenta del momento</p>
 
   <div class="monedas">
-    <button onclick="cambiarMoneda('MXN')" class="activo">🇲🇽 MXN</button>
-    <button onclick="cambiarMoneda('PEN')">🇵🇪 PEN</button>
-    <button onclick="cambiarMoneda('CLP')">🇨🇱 CLP</button>
-    <button onclick="cambiarMoneda('BOB')">🇧🇴 BOB</button>
-    <button onclick="cambiarMoneda('ARS')">🇦🇷 ARS</button>
-    <button onclick="cambiarMoneda('DIAM')">💎 Diam</button>
+    <button onclick="cambiarMoneda('MXN', this)" class="activo">🇲🇽 MXN</button>
+    <button onclick="cambiarMoneda('PEN', this)">🇵🇪 PEN</button>
+    <button onclick="cambiarMoneda('CLP', this)">🇨🇱 CLP</button>
+    <button onclick="cambiarMoneda('BOB', this)">🇧🇴 BOB</button>
+    <button onclick="cambiarMoneda('ARS', this)">🇦🇷 ARS</button>
+    <button onclick="cambiarMoneda('DIAM', this)">💎 Diam</button>
   </div>
 
   <div class="categoria">
@@ -91,9 +93,10 @@
 
   <div class="categoria">
     <h2>Ilustraciones con o sin objeto 💕</h2>
-       <div class="item"><span class="item-nombre">Ilustración pechos</span><a class="precio-btn" data-precios='{"MXN":70,"PEN":15,"CLP":3500,"BOB":30,"ARS":5000,"DIAM":400}' onclick="pedir(this)">$70 MXN</a></div>
-<div class="item"><span class="item-nombre">Ilustración cuerpo completo</span><a class="precio-btn" data-precios='{"MXN":160,"PEN":30,"CLP":70000,"BOB":60,"ARS":13,500,"DIAM":1000}' onclick="pedir(this)">$70 MXN</a></div>
-    <div class="item"><span class="item-nombre">Ilustración muslo</span><a class="precio-btn" data-precios='{"MXN":120,"PEN":20,"CLP":4500,"BOB":40,"ARS":9000,"DIAM":600}' onclick="pedir(this)">$120 MXN</a></div>
+    <div class="item"><span class="item-nombre">Ilustración pechos</span><a class="precio-btn" data-precios='{"MXN":70,"PEN":15,"CLP":3500,"BOB":30,"ARS":5000,"DIAM":400}' onclick="pedir(this)">$70 MXN</a></div>
+    <div class="item"><span class="item-nombre">Ilustración muslo</span><a class="precio-btn" data-precios='{"MXN":120,"PEN":20,"CLP":4500,"BOB":35,"ARS":9000,"DIAM":600}' onclick="pedir(this)">$120 MXN</a></div>
+    <div class="item"><span class="item-nombre">Ilustración cuerpo completo</span><a class="precio-btn" data-precios='{"MXN":160,"PEN":30,"CLP":7000,"BOB":60,"ARS":13500,"DIAM":1000}' onclick="pedir(this)">$160 MXN</a></div>
+  </div>
 
   <div class="categoria">
     <h2>Variantes ✨</h2>
@@ -161,14 +164,11 @@
       <li>Entrega de 7 a 14 días +, según la dificultad del trabajo</li>
       <li>No se hacen cambios una vez entregado el trabajo final</li>
       <li>Bajo ninguna circunstancia hago reembolso de dinero/diamantes</li>
-      <li>Solo tienes permitido hacer 3 cambios en todo el trabajo. Si requieres más cambios se aumentará costo adicional</li>
+      <li>Solo tienes permitido hacer 3 cambios en todo el trabajo</li>
       <li>No se permite modificar, usar IA en mis diseños ni borrar mi marca de agua</li>
-      <li>Solo trabajo con material original. No acepto logos, ilus, calis robados, IA, copias o imágenes de baja calidad</li>
-      <li>Si no respondes en 3 días, no se entrega lo pendiente y se retrasará su día de entrega. De no responder o rellenar los formularios se cancela el pedido sin reclamo alguno</li>
-      <li>Cada cliente tiene su tiempo, no recibo trabajos urgentes</li>
-      <li>Una vez entregado el trabajo, el cliente es responsable de guardarlo bien. No me hago responsable de pérdidas</li>
-      <li>Se entregan en PNG y JPG</li>
-      <li>Entregas mediante WhatsApp, correo, drive</li>
+      <li>Solo trabajo con material original</li>
+      <li>Si no respondes en 3 días, se cancela el pedido</li>
+      <li>Se entregan en PNG y JPG vía WhatsApp, correo, drive</li>
     </ul>
   </div>
 </div>
@@ -182,29 +182,33 @@ Heart.prototype.draw=function(){ ctx.fillStyle='rgba(255,105,180,0.3)'; ctx.begi
 function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); if(hearts.length<30) hearts.push(new Heart()); hearts.forEach((h,i)=>{ h.y-=h.speed; h.draw(); if(h.y<-20) hearts.splice(i,1); }); requestAnimationFrame(animate); }
 animate();
 
-let monedaActual = 'BOB';
+let monedaActual = 'MXN';
 const simbolos = {MXN:'$', PEN:'S/', CLP:'$', BOB:'Bs', ARS:'$', DIAM:'💎'};
 
-function cambiarMoneda(moneda){
+function cambiarMoneda(moneda, boton){
   monedaActual = moneda;
   document.querySelectorAll('.monedas button').forEach(b=>b.classList.remove('activo'));
-  event.target.classList.add('activo');
+  boton.classList.add('activo');
+
   document.querySelectorAll('.precio-btn').forEach(btn=>{
     const precios = JSON.parse(btn.dataset.precios);
     if(precios[moneda] === 0){ btn.innerText = "Consultar 💬"; return; }
-    btn.innerText = `${simbolos[moneda]}${precios[moneda]} ${moneda}`;
+    btn.innerText = `${simbolos[moneda]}${precios[moneda].toLocaleString()} ${moneda}`;
   });
 }
 
 function pedir(btn){
   const nombre = btn.parentElement.querySelector('.item-nombre').innerText;
   const precios = JSON.parse(btn.dataset.precios);
-  const precio = precios[monedaActual] === 0? "Consultar precio" : `${simbolos[monedaActual]}${precios[monedaActual]} ${monedaActual}`;
-  const mensaje = `Hola Anny! 💖 Vi tu catálogo y quiero pedir: ${nombre} - ${precio}`;
-  const numero = "59169707905";
+  const precio = precios[monedaActual] === 0? "Consultar precio" : `${simbolos[monedaActual]}${precios[monedaActual].toLocaleString()} ${monedaActual}`;
+  const mensaje = `Hola Anny! 💖 Vi tu catálogo y quiero pedir: ${nombre} - ${precio}. ¿Me pasas la cuenta para pagar?`;
+  const numero = "59169707905"; // TU WHATSAPP
   window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
-cambiarMoneda('BOB');
+
+document.addEventListener('DOMContentLoaded', () => {
+  cambiarMoneda('MXN', document.querySelector('.monedas button.activo'));
+});
 </script>
 </body>
 </html>
